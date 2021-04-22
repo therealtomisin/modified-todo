@@ -2,7 +2,7 @@ import React from 'react'
 
 function TodoItems({items, deleteTodo}) {
 
-const list = items.lenght >= 1 ? ( 
+const list = items.lenght ? ( 
     items.map(item=>{
     return (
         <li onClick = {()=>{}} key = {item.id}>{item.val}</li>
