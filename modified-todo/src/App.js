@@ -1,30 +1,34 @@
 import React, {useState} from 'react'
-import Form from './components/Form'
 import TodoItems from './components/TodoItems'
+import Header from './components/Header'
+import Sidebar from './components/Sidebar'
+import Nav from './components/Nav'
+import './css/style.css';
 
 function App() {
 
-const [items, setItems] = useState([])
+const [status, setStatus] = useState ('inactive')
 
-const addTodos = (value) => {
-  value.id = Math.random()
-  test()
-  setItems([...items, value])
-  console.log(items.length)
+const changeStatus = () => {
+  if (status === 'inactive'){
+    setStatus('active')
+  } else {
+    setStatus('inactive')
+  }
 }
 
-const test = () => {
-  let okoto = ['dsa']
-  let jasper = okoto.length ? (console.log('yes')):(console.log('no'))
-}
-
-const clearTodos = () => {
-  setItems([])
-}
   return (
-    <div>
-      <Form addTodo = {addTodos}/>
-      <TodoItems items = {items}/>
+    <div className = 'App'>
+      <div className={`sidebar ${status}`}>
+        <Sidebar status = {status} changeStatus={changeStatus} />
+      </div>
+      <div className = 'mainapp'>
+        <nav className = 'navbar'>
+          <Nav />
+        </nav>
+        <Header status = {status} changeStatus = {changeStatus} />
+        <TodoItems/>
+      </div>
     </div>
   )
 }

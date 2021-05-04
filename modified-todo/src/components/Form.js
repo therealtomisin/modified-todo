@@ -16,9 +16,9 @@ function Form(props) {
 
     return (
         <div>
-            <form onSubmit = {(e)=>handleSubmit(e)}>
-                <input type = 'text' value = {input.val} onChange = {(e)=>handleChange(e)} />
-                <input type = 'submit' value = 'submit' />
+            <form className = 'form' onSubmit = {(e)=>handleSubmit(e)}>
+                <input className = 'input' type = 'text' value = {input.val} onChange = {(e)=>handleChange(e)} />
+                <input className = 'btn' type = 'submit' value = 'Add' />
             </form>
         </div>
     )
